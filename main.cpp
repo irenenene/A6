@@ -21,7 +21,7 @@ int main(int argc, char**args) {
 
     sorter.initialize(fileName);
     if(sorter.fileOK) {
-      sorter.printAll();
+      sorter.runSorts();
     }
 
   }

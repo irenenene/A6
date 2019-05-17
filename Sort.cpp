@@ -69,7 +69,7 @@ void Sort::bubbleSort(double* arr, int arrSize) {
       if (arr[j] > arr[j+1]) {
         double temp = arr[j];
         arr[j] = arr[j+1];
-        arr[j+1] = arr[j];
+        arr[j+1] = temp;
         swapped = true;
       }
     }
@@ -92,4 +92,14 @@ void Sort::printArray(double* dArray) {
   for (int i = 0; i < arraySize; i++) {
     cout << dArray[i] << " ";
   }
+}
+
+void Sort::runSorts() {
+  cout << "Running bubbleSort." << endl;
+  cout << "Original: ";
+  printArray(copy1);
+  cout << endl << "Sorted: ";
+  bubbleSort(copy1, arraySize);
+  printArray(copy1);
+  cout << endl;
 }

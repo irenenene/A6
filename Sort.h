@@ -28,6 +28,7 @@ public:
   void bubbleSort(double* arr, int arrSize);
   void printArray(double* dArray); //for testing
   void printAll();
+  void runSorts();
 };
 
 #endif
