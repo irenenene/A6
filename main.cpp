@@ -22,7 +22,7 @@ int main(int argc, char**args) {
     sorter.initialize(fileName);
     if(sorter.fileOK) {
       sorter.runSorts();
-      sorter.printAll();
+      //sorter.printAll();
     }
 
   }

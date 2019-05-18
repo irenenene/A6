@@ -1,8 +1,16 @@
-//Sort.h contains implementations of 4 sorting algorithms
-//Bubble sort
-//Selection sort
-//Quick sort
-//Radix sort
+/*
+Irene Liu
+irliu@chapman.edu
+2313260
+CPSC 350-02
+Assignment 6
+
+Contains implementation of the following 4 sorting algorithms
+bubble sort
+insertion sort
+gnome sort
+quick sort 
+*/
 
 #ifndef SORT_H
 #define SORT_H
@@ -15,7 +23,6 @@ using namespace std;
 class Sort {
 public:
   Sort();
-  //Sort(int arrSize);
   ~Sort();
 
   double* copy1;

@@ -14,7 +14,7 @@ Sort::~Sort() {
   delete[] copy2;
   delete[] copy3;
   delete[] copy4;
-  cout << "Destructor" << endl;
+  //cout << "Destructor" << endl;
 }
 
 void Sort::initialize(string fName) {
