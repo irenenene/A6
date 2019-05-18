@@ -79,6 +79,63 @@ void Sort::bubbleSort(double* arr, int arrSize) {
   }
 }
 
+void Sort::insertionSort(double* arr, int arrSize) {
+  for (int i = 1; i < arrSize; i++) {
+    double temp = arr[i];
+    int j = i;
+
+    while ((j > 0) && (arr[j-1] >= temp)) {
+      arr[j] = arr[j-1];
+      j--;
+    }
+
+    arr[j] = temp;
+  }
+}
+
+void Sort::quickSort(double* arr, int left, int right) { //start and end are indexes
+  double pivot = arr[right];
+  int i = left;
+  int j = right;
+  double temp;
+
+  while (i <= j) {
+    while (arr[i] < pivot) {
+      i++;
+    }
+    while (arr[j] > pivot) {
+      j--;
+    }
+    if (i <= j) {
+      temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+      i++;
+      j--;
+    }
+  }
+
+  if (left < j)
+    quickSort(arr, left, j);
+  if (i < right)
+    quickSort(arr, i, right);
+}
+
+void Sort::gnomeSort(double* arr, int arrSize) {
+  int index = 0;
+
+  while (index < arrSize) {
+    if ((index == 0) || (arr[index] >= arr[index-1]))
+      index++;
+    else {
+      double temp = arr[index];
+      arr[index] = arr[index-1];
+      arr[index-1] = temp;
+      index--;
+    }
+  }
+}
+
 void Sort::printAll() {
   cout << "Array 1: ";
   printArray(copy1);
@@ -86,20 +143,54 @@ void Sort::printAll() {
   cout << "Array 2: ";
   printArray(copy2);
   cout << endl;
+  cout << "Array 3: ";
+  printArray(copy3);
+  cout << endl;
+  cout << "Array 4: ";
+  printArray(copy4);
+  cout << endl;
 }
 
 void Sort::printArray(double* dArray) {
-  for (int i = 0; i < arraySize; i++) {
+  for (int i = 0; i < 10; i++) {
     cout << dArray[i] << " ";
   }
 }
 
 void Sort::runSorts() {
-  cout << "Running bubbleSort." << endl;
-  cout << "Original: ";
-  printArray(copy1);
-  cout << endl << "Sorted: ";
+  clock_t startTime;
+  clock_t endTime;
+
+  cout << "Running bubble sort. \n";
+  startTime = clock(); //get startTime
   bubbleSort(copy1, arraySize);
-  printArray(copy1);
-  cout << endl;
+  endTime = clock(); //get endTime
+
+  double seconds;
+  seconds = double(endTime-startTime)/CLOCKS_PER_SEC;
+  cout << "Bubble Sort time: " << seconds << " seconds \n";
+
+  cout << "Running insertion sort. \n";
+  startTime = clock(); //get startTime
+  insertionSort(copy2, arraySize);
+  endTime = clock(); //get endTime
+
+  seconds = double(endTime-startTime)/CLOCKS_PER_SEC;
+  cout << "Insertion Sort time: " << seconds << " seconds \n";
+
+  cout << "Running quick sort. \n";
+  startTime = clock(); //get startTime
+  quickSort(copy3, 0, arraySize-1);
+  endTime = clock(); //get endTime
+
+  seconds = double(endTime-startTime)/CLOCKS_PER_SEC;
+  cout << "Quick Sort time: " << seconds << " seconds \n";
+
+  cout << "Running Gnome sort. \n";
+  startTime = clock(); //get startTime
+  gnomeSort(copy4, arraySize);
+  endTime = clock(); //get endTime
+
+  seconds = double(endTime-startTime)/CLOCKS_PER_SEC;
+  cout << "Gnome Sort time: " << seconds << " seconds \n";
 }

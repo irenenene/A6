@@ -1,14 +1,15 @@
 //Sort.h contains implementations of 4 sorting algorithms
 //Bubble sort
 //Selection sort
-//Insertion sort
-//and Quick sort
+//Quick sort
+//Radix sort
 
 #ifndef SORT_H
 #define SORT_H
 
 #include <iostream>
 #include <fstream>
+#include <time.h>
 using namespace std;
 
 class Sort {
@@ -26,9 +27,13 @@ public:
 
   void initialize(string fName); //reads from file
   void bubbleSort(double* arr, int arrSize);
+  void insertionSort(double* arr, int arrSize);
+  void quickSort(double* arr, int left, int right);
+  void gnomeSort(double*arr, int arrSize);
+  void runSorts();
+
   void printArray(double* dArray); //for testing
   void printAll();
-  void runSorts();
 };
 
 #endif
